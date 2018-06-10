@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Http from './../../lib/api';
+import Http from './../lib/api';
 
 const MAILCHIMP_ENDPOINT = 'http://127.0.0.1:3001/api/mailchimp';
 

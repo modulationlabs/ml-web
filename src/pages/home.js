@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import Email from './email';
 import Typewriter from './../lib/typewriter';
-import EngineeringIcons from './engineering-icons';
+import EngineeringIcons from './../partials/engineering-icons';
 
-const src = "/static/632332824.mp4";
+import video from './../assets/video.mp4';
 const style = { 
 	objectFit: 'initial', 
 	minHeight: '300px', 
@@ -16,14 +16,15 @@ const textColor = { color: '#fff' };
 const Home = () => (
 	<div className="uk-height-viewport uk-inline uk-animation-fade" style={style}>
 		<video autoPlay loop style={style}>
-			<source type="video/mp4" src={src}/>
+			<source type="video/mp4" src={video}/>
 		</video>
 		
 		<div className="ml-home-overlay">
 			<div className="uk-container uk-text-center">
 				<br/>
 				<h1 style={textColor} className="uk-color-primary uk-heading-inverse">
-					<Typewriter></Typewriter>
+				Test
+					{/* <Typewriter></Typewriter> */}
 				</h1>
 				<hr/>
 				<br/>
