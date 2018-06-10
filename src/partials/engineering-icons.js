@@ -31,25 +31,19 @@ const iconStyle = {
 	margin: '0 5px'
 }
 
-export default class EngineeringIcons extends React.Component {
+const EngineeringIcons = () => {
 
-	constructor() {
-		super();
-	}
-
-	componentDidMount() {}
-
-	render() {
-		return (
-			<div className="uk-text-center uk-padding">
-				<br/>
-				<p className="">We specialize in modern tools that deliver proven results.</p>
-				<div className="">
-					{ ARR.map((entry, i) => (<a key={i} href={entry.link}><img style={iconStyle} src={entry.img} alt={entry.alt} /></a>))}
-				</div>
-				<br/><br/>
+	return (
+		<div className="uk-text-center uk-padding">
+			<br/>
+			<p className="">We specialize in modern tools that deliver proven results.</p>
+			<div className="">
+				{ ARR.map((entry, i) => (<a key={i} href={entry.link}><img style={iconStyle} src={entry.img} alt={entry.alt} /></a>))}
 			</div>
-		);
-	}w
+			<br/><br/>
+		</div>
+	);
 
 }
+
+export default EngineeringIcons;

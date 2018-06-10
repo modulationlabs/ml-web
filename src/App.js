@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './app.css';
 
 import { Router, Route, Switch } from 'react-router-dom';
@@ -17,26 +17,19 @@ import Contact from './pages/contact';
 // import News from './news';
 const history = createBrowserHistory()
 
-export default class App extends React.Component {
+const App = () => [
+  <Header />,
+  <main role="main">
+    <Router history={history}>
+      <Switch>
+        <Route exact path="/" component={Home}></Route>
+        <Route path="/contact" component={Contact}></Route>
+        <Route component={NotFound}></Route>
+      </Switch>
+    </Router>
+  </main>,
+  <Footer />
+];
 
-	render() {
-		return (
-			<div>
-				<Header />
-        <Router history={history}>
-          <Switch>
-            <Route exact path="/" component={Home}></Route>
-            {/* <Route path="/news" component={News}></Route>
-            <Route path="/resources" component={Resources}></Route>
-            <Route path="/resource/:id" component={Post}></Route>
-    <Route path="/about" component={About}></Route> */}
-            <Route path="/contact" component={Contact}></Route>
-            <Route component={NotFound}></Route>
-          </Switch>
-        </Router>
-				<Footer />
-			</div>
-		);
-	}
 
-}
+export default App;

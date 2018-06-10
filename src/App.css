@@ -1,0 +1,41 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.ml-home-overlay {
+  top: 160px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  min-height: 300px;
+  height: 300px;
+}
+
+@media (max-width: 575.98px) {
+  .ml-footer .shrink {
+    display: none;
+  }
+  .ml-home-overlay {
+    top: 200px;
+    padding: 20px;
+  }
+  body {
+    overflow: scroll;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+  .ml-footer .shrink {
+    display: none;
+  }
+  .ml-home-overlay {
+    top: 200px;
+    padding: 20px;
+  }
+}

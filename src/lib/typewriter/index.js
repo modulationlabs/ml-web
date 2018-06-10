@@ -27,7 +27,7 @@ export default class Typewriter extends React.Component {
 	}
 
 	getRandomInterval(min, max) {
-		return parseInt(Math.random() * (max - min) + min);
+		return parseInt(Math.random() * (max - min) + min, 10);
 	}
 
 	clearTimeouts() {
@@ -37,8 +37,8 @@ export default class Typewriter extends React.Component {
 	}
 
 	setType() {
-		let self = this;
 		let index = this.state.curIndex;
+		if (!TEXT_STRINGS[index] && !TEXT_STRINGS[index].length) return;
 		let len = TEXT_STRINGS[index].length;
 
 		this.clearTimeouts();
@@ -69,7 +69,7 @@ export default class Typewriter extends React.Component {
 
 		let setString = setInterval(() => { 
 			let curIndex = self.state.curIndex += 1;
-			this.setState({ curIndex: curIndex });
+			this.setState({ curIndex: curIndex || 0 });
 			this.setType();
 		}, TIME_PER_STRING);
 		

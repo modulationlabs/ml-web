@@ -9,40 +9,59 @@ const Footer = () => {
 	const TWITTER_LINK = 'https://www.twitter.com/modulationlabs';
 	const FB_LINK = 'https://www.facebook.com/modulationlabs';
 
-	const CONTACT_NAME = 'Christopher Hill, Founder';
-	const CONTACT_NUMBER = '949.829.2622';
+	const CONTACT_NUMBER = '480.630.9861';
 	const CONTACT_LOCATION = 'Scottsdale, Arizona';
 
-	const iconStyles = { height: '60px' };
-	const textStyles = { color: '#efefef' };
+	const iconStyles = { height: '30px' };
 
 	return (
-		<div className="ml-footer uk-position-bottom uk-position-relative">
-			<br/>
-			<div className="uk-container uk-container-center uk-text-center">
-				<ul className="uk-subnav uk-subnav-line uk-flex-center">
-					<li>
-						<a href={GITHUB_LINK} className="uk-subnav uk-subnav-line uk-flex-center">
-							<img style={iconStyles} src={GITHUB_ICON} alt="GitHub"/>
-						</a>
-					</li>
-					<li>
-						<a href={TWITTER_LINK} className="uk-subnav uk-subnav-line uk-flex-center">
-							<img style={iconStyles} src={TWITTER_ICON} alt="Twitter"/>
-						</a>
-					</li>
-					<li>
-						<a href={FB_LINK} className="uk-subnav uk-subnav-line uk-flex-center">
-							<img style={iconStyles} src={FB_ICON} alt="Facebook"/>
-						</a>
-					</li>
-				</ul>
-				<div className="uk-panel">
-					<h6 style={textStyles}>Modulation Labs | <a href="mailto:hello@modulation.io">hello@modulation.io</a> | {CONTACT_NUMBER}<br/>{CONTACT_LOCATION}</h6>
+		<footer className="footer ml-footer bg-dark text-light pt-5">
+			<div className="container">
+
+				<div className="row shrink">
+					<div className="col-md">
+						<h5 className="text-center">About Us</h5>
+						<p className="text-center">We are a boutique digital firm that delivers quantifiable results for your business.</p>
+					</div>
+					<div className="col-md">
+						<h5 className="text-center">Services</h5>
+						<ul className="list-unstyled text-center">
+							<li>SEO</li>
+							<li>Digital Property Management</li>
+							<li>Web Development</li>
+							<li></li>
+						</ul>
+					</div>
+					<div className="col-md">
+						<h5 className="text-center">Connect with Us</h5>
+						<ul className="list-unstyled list-inline text-center">
+							<li className="list-inline-item">
+								<a href={GITHUB_LINK} className="">
+									<img style={iconStyles} src={GITHUB_ICON} alt="GitHub"/>
+								</a>
+							</li>
+							<li className="list-inline-item">
+								<a href={TWITTER_LINK} className="">
+									<img style={iconStyles} src={TWITTER_ICON} alt="Twitter"/>
+								</a>
+							</li>
+							<li className="list-inline-item">
+								<a href={FB_LINK} className="">
+									<img style={iconStyles} src={FB_ICON} alt="Facebook"/>
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
-				<br/>
+
+				<div className="row">
+					<p className="text-center mx-auto">
+						Modulation Labs | <a href="mailto:hello@modulation.io">hello@modulation.io</a> | {CONTACT_NUMBER}<br/>{CONTACT_LOCATION}
+					</p>
+				</div>
+
 			</div>
-		</div>
+		</footer>
 	);
 
 };

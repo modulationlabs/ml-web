@@ -40,17 +40,18 @@ export default class Email extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<div className="uk-margin uk-padding uk-text-center">
-					<br/> 
-					<p>Just getting started? Subscribe for free web and mobile resources in your inbox every week! We promise not to spam you.</p>
-					<div className="uk-form-custom uk-first-column">
-						<input onChange={this.handleChange} className="uk-input uk-form-width-medium" type="text" placeholder="Email Address" />
+			<form className="form col-md-6 offset-md-3 text-center">
+				<p>Just getting started? Subscribe for free web and mobile resources in your inbox every week! We promise not to spam you.</p>
+				<div className="row">
+					<div className="col-md-9">
+						<input onChange={this.handleChange} className="form-control mb-3" type="text" placeholder="Email Address" />
 					</div>
-					<button onClick={this.handleSubmit} className="uk-button uk-button-primary">Submit</button>
+					<div className="col-md-3">
+						<button onClick={this.handleSubmit} className="btn btn-md btn-primary mb-3 ml-2 w-100">Submit</button>
+					</div>
 				</div>
-				<br/>
-			</div>
+				<br />
+			</form>
 		);
 	}
 

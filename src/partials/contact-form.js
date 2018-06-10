@@ -7,10 +7,6 @@ export default class ContactForm extends React.Component {
 		this.state = { resources: [] };
 	}
 
-	componentWillMount() {
-		let self = this;
-	}
-
 	render() {
 		return (
 			<form>
