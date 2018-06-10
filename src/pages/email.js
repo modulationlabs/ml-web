@@ -47,7 +47,7 @@ export default class Email extends React.Component {
 						<input onChange={this.handleChange} className="form-control mb-3" type="text" placeholder="Email Address" />
 					</div>
 					<div className="col-md-3">
-						<button onClick={this.handleSubmit} className="btn btn-md btn-primary mb-3 ml-2 w-100">Submit</button>
+						<button onClick={this.handleSubmit} className="btn btn-md btn-primary mb-3 ml-2">Submit</button>
 					</div>
 				</div>
 				<br />
