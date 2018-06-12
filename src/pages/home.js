@@ -4,8 +4,8 @@ import EngineeringIcons from './../partials/engineering-icons';
 import Video from './../partials/video';
 
 const Home = () => [
-	<Video />,
-	<div>
+	<Video key={1} />,
+	<div key={2}>
 		<div className="container">
 			<div className="text-center">
 				<EngineeringIcons></EngineeringIcons>

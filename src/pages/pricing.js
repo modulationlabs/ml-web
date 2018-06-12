@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Http from './../lib/api';
 
-const endpoint = 'api/mailchimp';
-const apiUrl = `/${endpoint}`;
-export default class Email extends React.Component {
+const MAILCHIMP_ENDPOINT = 'http://127.0.0.1:3001/api/mailchimp';
+
+export default class Pricing extends React.Component {
 
 	constructor() {
 		super();
@@ -11,21 +11,21 @@ export default class Email extends React.Component {
 		this.handleClose = this.handleClose.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
-		this.http = new Http();
+	}
+
+	componentDidMount() {
+		
 	}
 
 	handleSubmit(e) {
-		e.preventDefault();
 		let payload = { 
 			email: this.state.email
 		};
-		this.http.post(apiUrl, payload)
+		this.http.post(MAILCHIMP_ENDPOINT, payload)
 			.then(data => { 
-				debugger
 				console.log(`Data: ${data}`);
 			})
 			.catch(err => {
-				debugger
 				console.log(`Error: ${err}`);
 			})
 	}

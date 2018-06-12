@@ -18,8 +18,8 @@ import Contact from './pages/contact';
 const history = createBrowserHistory()
 
 const App = () => [
-  <Header />,
-  <main role="main">
+  <Header key={1} />,
+  <main key={2} role="main">
     <Router history={history}>
       <Switch>
         <Route exact path="/" component={Home}></Route>
@@ -28,7 +28,7 @@ const App = () => [
       </Switch>
     </Router>
   </main>,
-  <Footer />
+  <Footer key={3} />
 ];
 
 

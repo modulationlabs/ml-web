@@ -12,7 +12,7 @@ const Header = () => {
 				{/* <a className="p-2 text-dark" href="/enterprise">Services</a> */}
 				<a className="p-2 text-dark" href="/contact">Contact</a>
 			</nav>
-			<a className="btn btn-outline-primary" href>Customer Login</a>
+			<a className="btn btn-outline-primary" href="">Customer Login</a>
 		</div>
 	)
 };
