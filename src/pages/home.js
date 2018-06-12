@@ -6,6 +6,7 @@ import Video from './../partials/video';
 const Home = () => [
 	<Video key={1} />,
 	<div key={2}>
+		<h1 className="mt-3 text-center text-muted">Welcome to Modulation Labs</h1>
 		<div className="container">
 			<div className="text-center">
 				<EngineeringIcons></EngineeringIcons>
