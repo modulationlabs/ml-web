@@ -22,11 +22,11 @@ export default class Typewriter extends React.Component {
 		this.state = { curIndex: 0, textValue: '' };
 		this.intervals = [];
 		this.timeouts = [];
-		this.setType = this.setType.bind(this);
-		this.getRandomInterval = this.getRandomInterval.bind(this);
+		this.writeText = this.writeText.bind(this);
+		this.getRandom = this.getRandom.bind(this);
 	}
 
-	getRandomInterval(min, max) {
+	getRandom(min, max) {
 		return parseInt(Math.random() * (max - min) + min, 10);
 	}
 
@@ -36,44 +36,40 @@ export default class Typewriter extends React.Component {
 		}
 	}
 
-	setType() {
-		let index = this.state.curIndex;
-		if (!TEXT_STRINGS[index] && !TEXT_STRINGS[index].length) return;
-		let len = TEXT_STRINGS[index].length;
-
+	writeText(index) {
+		let textStr = TEXT_STRINGS[index];
+		let len = textStr.length;
 		this.clearTimeouts();
-		let intervals = [];
+		let timeoutArr = [];
 
 		for (let i = 0; i <= len; i++) {
-			let interval = this.getRandomInterval(TYPE_MIN_TIME, TYPE_MAX_TIME);
-			intervals.push(interval);
+			let timeout = this.getRandom(TYPE_MIN_TIME, TYPE_MAX_TIME);
+			timeoutArr.push(timeout);
 		}
 
-		// [100, 200, 150, etc]
+		let totalTimeoutLength = 0;
 
-		let totalTime = 0;
-
-		intervals.forEach((interval, i) => { 
-			totalTime += interval;
+		timeoutArr.forEach((timeoutLength, i) => {
+			totalTimeoutLength += timeoutLength;
+			const textValue = textStr.slice(0, i);
 			let timeout = setTimeout(() => {
-				this.setState({ textValue: TEXT_STRINGS[index].slice(0, i) });
-			}, totalTime);	
+				this.setState({ textValue });
+			}, totalTimeoutLength);	
 			this.timeouts.push(timeout);
 		});
-
 	}
 
 	componentDidMount() {
-		let self = this;
-		this.setType();
-
-		let setString = setInterval(() => { 
-			let curIndex = self.state.curIndex += 1;
-			this.setState({ curIndex: curIndex || 0 });
-			this.setType();
+		const totalStrings = TEXT_STRINGS.length;
+		this.writeText(this.state.curIndex);
+		let intervals = setInterval(() => {
+			let { curIndex } = this.state;
+			curIndex = (curIndex += 1) % totalStrings;
+			this.setState({ curIndex }, () => {
+				this.writeText(this.state.curIndex);
+			});
 		}, TIME_PER_STRING);
-		
-		this.intervals.push(setString);
+		this.intervals.push(intervals);
 	}
 
 	componentWillUnmount() {
