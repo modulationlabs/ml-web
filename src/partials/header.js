@@ -9,7 +9,7 @@ const Header = () => {
 			</h5>
 			<nav className="my-2 my-md-0 mr-md-3">
 				<a className="p-2 text-dark" href="/">Home</a>
-				{/* <a className="p-2 text-dark" href="/enterprise">Services</a> */}
+				<a className="p-2 text-dark" href="/blog">Blog</a>
 				<a className="p-2 text-dark" href="/contact">Contact</a>
 			</nav>
 			<a className="btn btn-outline-primary" href="">Customer Login</a>

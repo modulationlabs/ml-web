@@ -34,13 +34,10 @@ const iconStyle = {
 const EngineeringIcons = () => {
 
 	return (
-		<div className="uk-text-center uk-padding">
-			<br/>
-			<p className="">We specialize in modern tools that deliver proven results.</p>
-			<div className="">
+		<div className="mb-5">
+			<div className="mb-2">
 				{ ARR.map((entry, i) => (<a key={i} href={entry.link}><img style={iconStyle} src={entry.img} alt={entry.alt} /></a>))}
 			</div>
-			<br/><br/>
 		</div>
 	);
 
