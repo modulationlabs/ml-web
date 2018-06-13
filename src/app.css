@@ -8,6 +8,10 @@ main {
   flex: 1;
 }
 
+main img {
+  max-width: 100%;
+}
+
 .ml-footer {
   font-size: 14px;
 }
