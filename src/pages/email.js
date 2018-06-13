@@ -38,7 +38,7 @@ export default class Email extends React.Component {
 
 	render() {
 		return (
-			<form className="form col-md-6 offset-md-3 text-center">
+			<form className="form col-md-4 offset-md-4 text-center">
 				<div className="row">
 					<div className="col-md-9">
 						<input onChange={this.handleChange} className="form-control mb-3" type="text" placeholder="Email Address" />
