@@ -7,7 +7,7 @@ export default class Email extends React.Component {
 
 	constructor() {
 		super();
-		this.state = { isVisible: true, email: '' };
+		this.state = { isVisible: true, email: '', submitSuccess: false, submitted: false };
 		this.handleClose = this.handleClose.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
@@ -21,10 +21,10 @@ export default class Email extends React.Component {
 		};
 		this.http.post(apiUrl, payload)
 			.then(data => { 
-				console.log(`Data: ${data}`);
+				this.setState({ submitSuccess : data.success, submitted: true });
 			})
 			.catch(err => {
-				console.log(`Error: ${err}`);
+				this.setState({ submitSuccess: false, submitted: true });
 			})
 	}
 
@@ -37,16 +37,32 @@ export default class Email extends React.Component {
 	}
 
 	render() {
+		const { submitSuccess, submitted } = this.state;
 		return (
 			<form className="form col-md-4 offset-md-4 text-center">
-				<div className="row">
-					<div className="col-md-9">
-						<input onChange={this.handleChange} className="form-control mb-3" type="text" placeholder="Email Address" />
+				{ submitSuccess ? 
+					<div className="row">
+						<div className="col-md-12">
+							<p>You have subscribed successfully.</p>
+						</div>
 					</div>
-					<div className="col-md-3">
-						<button onClick={this.handleSubmit} className="btn btn-md btn-primary mb-3 ml-2">Submit</button>
+				: 
+					<div className="row">
+						<div className="col-md-9">
+							<input
+								noValidate
+								onChange={this.handleChange}
+								className={`form-control mb-1 ${submitted ? 'is-invalid' : ''}`}
+								type="text" placeholder="Email Address" />
+							<div className="invalid-feedback mt-0">
+								That email is already subscribed or invalid.
+							</div>
+						</div>
+						<div className="col-md-3">
+							<button onClick={this.handleSubmit} className="btn btn-md btn-primary mb-1 ml-2">Submit</button>
+						</div>
 					</div>
-				</div>
+				}
 				<br />
 			</form>
 		);

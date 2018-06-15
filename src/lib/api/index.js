@@ -18,7 +18,8 @@ export default class Http {
 	}
 
 	post(url, body, options) {
-		return fetch(url, this.options({ method: 'POST', body: JSON.stringify(body) }));
+		return fetch(url, this.options({ method: 'POST', body: JSON.stringify(body) }))
+			.then(response => response.json());
 	}
 
 	patch(url, body, options) {
