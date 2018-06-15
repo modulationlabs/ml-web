@@ -1,6 +1,7 @@
 import * as React from 'react';
 import BlogCard from '../partials/blog-card';
 import Contentful from './../lib/contentful/';
+import Spinner from './../partials/spinner';
 
 export default class News extends React.Component {
 
@@ -25,7 +26,7 @@ export default class News extends React.Component {
 	}
 
 	render() {
-		if (!this.state.posts) return (<div></div>);
+		if (!this.state.posts) return (<Spinner />);
 		return (
 			<div className="container">
 				<br />

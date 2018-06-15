@@ -2,6 +2,7 @@ import * as React from 'react';
 import Contentful from './../lib/contentful/';
 import * as ReactMarkdown from 'react-markdown';
 import { Redirect } from 'react-router-dom';
+import Spinner from './../partials/spinner';
 
 export default class BlogDetail extends React.Component {
 
@@ -19,7 +20,7 @@ export default class BlogDetail extends React.Component {
 	}
 
 	render() {
-		if (!this.state.loaded) return (<div></div>);
+		if (!this.state.loaded) return (<Spinner />);
 		if (!this.state.post || !this.state.post.fields) return (<Redirect to={'/blog'}/>);
 		let title = this.state.post.fields.title || 'No Title';
 		let body = this.state.post.fields.body || 'Lorem Ipsum';
